@@ -1,4 +1,6 @@
-﻿namespace dz12
+﻿using static dz12.Sword;
+
+namespace dz12
 {
     internal class Program
     {
@@ -30,6 +32,36 @@
             var carRental = new TransportRental<Car>("Петров Петр Петрович", car, 60);
             Console.WriteLine(carRental.GetRentalInfo());
             Console.WriteLine($"Общая стоимость аренды: {carRental.CalculateTotalCost()}");
+
+            Sword sword = new()
+            {
+                WeaponPower = 10,
+                SpecialAbility = "Парирование",
+                Quality = SwordQuality.Уникальное
+            };
+
+
+            CharacterInGame<Sword> okr = new CharacterInGame<Sword>(
+                "Джон", "Орк", sword, 70);
+
+            Console.WriteLine(okr.GetCharacterInfo());
+            Console.WriteLine($"Суммарная сила: {okr.GetPower()}");
+
+
+            Bow bow = new()
+            {
+                WeaponPower = 20,
+                SpecialAbility = "Двойной выстрел",
+                Range = 100,
+                Accuracy = 75
+            };
+
+
+            CharacterInGame<Bow> archer = new CharacterInGame<Bow>(
+                "Эльза", "Эльф", bow, 7);
+
+            Console.WriteLine(archer.GetCharacterInfo());
+            Console.WriteLine($"Суммарная сила: {archer.GetPower()}");
         }
     }
 }
