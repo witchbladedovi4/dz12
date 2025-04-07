@@ -62,19 +62,32 @@ namespace dz12
 
             //Console.WriteLine(archer.GetCharacterInfo());
             //Console.WriteLine($"Суммарная сила: {archer.GetPower()}");
-            var bread = new Necessites
+            //var bread = new Necessites
+            //{
+            //    ProductName = "Хлеб",
+            //    ProductCost = 50.2
+            //};
+
+            //var gold = new Lux
+            //{
+            //    ProductName = "Золото",
+            //    ProductCost = 113123
+            //};
+
+            //bread.Print(); gold.Print();
+
+            var manager = new Manager
             {
-                ProductName = "Хлеб",
-                ProductCost = 50.2
+                FullName = "Петя",
+                WorkingDays = 28
             };
 
-            var gold = new Lux
+            var departament = new DepartamentHead
             {
-                ProductName = "Золото",
-                ProductCost = 113123
+                FullName = "Вася",
+                WorkingDays = 65
             };
-
-            bread.Print(); gold.Print();
+            manager.Print(); departament.Print();
         }
     }
 }
