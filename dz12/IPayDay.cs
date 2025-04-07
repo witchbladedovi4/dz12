@@ -10,7 +10,6 @@ namespace dz12
     {
         double CalculateSalary();
 
-        // Свойства для работы с полями
         string FullName { get; set; }
         int WorkingDays { get; set; }
     }
