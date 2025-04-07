@@ -159,7 +159,7 @@ namespace dz12
             cars.Add(newCar);
             cars = cars.OrderBy(x => x.Year).ToList();
 
-            
+
             Console.Write("\nВведите VIN номер для поиска и удаления: ");
             string vinToDelete = Console.ReadLine();
 
@@ -175,6 +175,87 @@ namespace dz12
             string vinToCheck = Console.ReadLine();
             bool checkResult = cars[0].CheckVIN(vinToCheck);
             Console.WriteLine(checkResult);
+            List<Employee> employees =
+                [
+                    new Employee()
+                    {
+                        Name = "Петя",
+                        SecondName = "Петров",
+                        ThirdName = "Петрович",
+                        Year = 2000,
+                        Post = "Manager"
+                    },
+                    new Employee()
+                    {
+                        Name = "Вася",
+                        SecondName = "Веслов",
+                        ThirdName = "Веслович",
+                        Year = 2004,
+                        Post = "St. Manager"
+                    },
+                    new Employee()
+                    {
+                        Name = "Триндамир",
+                        SecondName = "Тринадов",
+                        ThirdName = "Тринадович",
+                        Year = 2010,
+                        Post = "Ml. Manager"
+                    },
+                    new Employee()
+                    {
+                        Name = "Четрверка",
+                        SecondName = "Четверов",
+                        ThirdName = "Четверкович",
+                        Year = 2012,
+                        Post = "Manager"
+                    },
+                    new Employee()
+                    {
+                        Name = "5opka",
+                        SecondName = "5pkov",
+                        ThirdName = "5pkovi4",
+                        Year = 1980,
+                        Post = "Deportament"
+                    }
+                ];
+            Employee newEmployee = new();
+            Console.WriteLine("Введите имя");
+            newEmployee.Name = Console.ReadLine();
+
+            Console.WriteLine("Вевите фамилию");
+            newEmployee.SecondName = Console.ReadLine();
+
+            Console.WriteLine("Введите отчествл");
+            newEmployee.ThirdName = Console.ReadLine();
+
+            Console.WriteLine("Введите год");
+            newEmployee.Year = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("введите Должность");
+            newEmployee.Post = Console.ReadLine();
+            employees.Add(newEmployee);
+
+            Console.WriteLine("Введите имя сотрудника для удаления");
+            string nameDel = Console.ReadLine().ToLower();
+
+            Console.WriteLine("Введите фамилию сотрудника для удаления");
+            string lastNameDel = Console.ReadLine().ToLower();
+
+            Console.WriteLine("Введите отчество сотрудника для удаления");
+            string thirdNameDel = Console.ReadLine().ToLower();
+
+            Employee? employeeDel = employees.FirstOrDefault(x => 
+            x.Name.ToLower() == nameDel && 
+            x.SecondName.ToLower() == lastNameDel && 
+            x.ThirdName.ToLower() == thirdNameDel);
+            employees.Remove((Employee)employeeDel);
+            employees = employees.OrderBy(e => e.SecondName).ToList();
+            foreach (var employee in employees)
+            {
+                Console.WriteLine(employee.Info);
+            }
+
+ 
         }
     }
 }
